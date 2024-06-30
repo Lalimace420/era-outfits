@@ -1,3 +1,11 @@
+Hello I am SluggDev, I convert era-outfit to ox_inventory because I dont see an other metaclothing script better than era's one I give all credits to her!! I juste convert it to help people with ox_inventory for having a great metaclothing script
+
+
+
+
+
+
+
 Please consider donating (link to the bottom) ! ♥
 
 # era-outfits
