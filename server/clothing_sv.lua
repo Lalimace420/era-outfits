@@ -286,18 +286,21 @@ local DifferentItems = {
 RegisterNetEvent('eraoutfits:server:receiveclothes')
 AddEventHandler('eraoutfits:server:receiveclothes', function(type, ID, Color)
     local Player = QBCore.Functions.GetPlayer(source)
-    local info = {} 
-    info.id = ID
-    info.color = Color
+
 
     if DifferentItems[type] then
         item = DifferentItems[type]
     else
         item = "era_"..type
     end
-
+    local newItemInfo = {
+        id = ID,
+        color = Color,
+        description = "id: "..ID.."color:"..Color
+    }
     if item then
-        Player.Functions.AddItem(item, 1, nil, info)
+       -- Player.Functions.AddItem(item, 1, nil, info)
+        exports.ox_inventory:AddItem(source, item, 1, newItemInfo) 
         TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items[item], "add")
     else 
         print("ERROR : NO ITEM FOUND")   
@@ -309,48 +312,50 @@ end)
 RegisterNetEvent('eraoutfits:server:receiveshirt')
 AddEventHandler('eraoutfits:server:receiveshirt', function(topId, TopColor, shirtId, shirtColor, glovesId, glovesColor)
     local Player = QBCore.Functions.GetPlayer(source)
-    local info = {}
+    local newItemInfo = {
+        id = topId,
+        color = TopColor,
+        idshirt = shirtId,
+        colorshirt = shirtColor,
+        idgloves = glovesId,
+        colorgloves = glovesColor,
+    }
 
-    info.idtop = topId
-    info.colortop = TopColor
-    info.idshirt = shirtId
-    info.colorshirt = shirtColor
-    info.idgloves = glovesId
-    info.colorgloves = glovesColor
 
 
-        Player.Functions.AddItem('era_top', 1, nil, info)
-        TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items["era_top"], "add")
+        --Player.Functions.AddItem('era_top', 1, nil, info)
+        exports.ox_inventory:AddItem(source, 'era_top', 1, newItemInfo) 
+        --TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items["era_top"], "add")
     end)
 
     RegisterNetEvent('eraoutfits:server:receiveoutfit')
     AddEventHandler('eraoutfits:server:receiveoutfit', function(topDrawable, topTexture, underDrawable, underTexture, glovesDrawable, glovesTexture, kevlarDrawable, kevlarTexture, shoesDrawable, shoesTexture, chainsDrawable, chainsTexture, decalsDrawable, decalsTexture, maskDrawable, maskTexture, pantsDrawable, pantsTexture, bagsDrawable, bagsTexture)
         local Player = QBCore.Functions.GetPlayer(source)
-        local info = {}
+   
+    local newItemInfo = {
+        idtop = topDrawable,
+        colortop = topTexture,
+        idshirt = underDrawable,
+        colorshirt = underTexture,
+        idgloves = glovesDrawable,
+        colorgloves = glovesTexture, -- Top
+        idkevlar = kevlarDrawable, 
+        colorkevlar = kevlarTexture, --Kevlar 
+        idshoes = shoesDrawable,
+        colorshoes = shoesTexture, --Shoes
+        idchains = chainsDrawable,
+        colorchains = chainsTexture, --Chains
+        iddecal = decalsDrawable,
+        colordecal = decalsTexture, --Decals
+        idmask = maskDrawable, 
+        colormask = maskTexture, --Mask
+        idpants = pantsDrawable, 
+        colorpants = pantsTexture, --Pants
+        idbags = bagsDrawable, 
+        colorbags = bagsTexture, --Bags
+    }
     
-        info.idtop = topDrawable
-        info.colortop = topTexture
-        info.idshirt = underDrawable
-        info.colorshirt = underTexture
-        info.idgloves = glovesDrawable
-        info.colorgloves = glovesTexture -- Top
-        info.idkevlar = kevlarDrawable 
-        info.colorkevlar = kevlarTexture --Kevlar 
-        info.idshoes = shoesDrawable 
-        info.colorshoes = shoesTexture --Shoes
-        info.idchains = chainsDrawable 
-        info.colorchains = chainsTexture --Chains
-        info.iddecal = decalsDrawable 
-        info.colordecal = decalsTexture --Decals
-        info.idmask = maskDrawable 
-        info.colormask = maskTexture --Mask
-        info.idpants = pantsDrawable 
-        info.colorpants = pantsTexture --Pants
-        info.idbags = bagsDrawable 
-        info.colorbags = bagsTexture --Bags
-
-    
-    
-            Player.Functions.AddItem('era_outfit', 1, nil, info)
+            exports.ox_inventory:AddItem(source, 'era_outfit', 1, newItemInfo)
+            --Player.Functions.AddItem('era_outfit', 1, nil, info)
             TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items["era_outfit"], "add")
-        end)
+end)
