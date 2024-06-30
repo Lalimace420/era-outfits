@@ -573,12 +573,12 @@ end
 
                     QBCore.Functions.Notify(Locales.notif.done, 'success')
                     if IsPlayerInUnderwear(type) then
-                        SetPedComponentVariation(playerPed, slot, ItemData.info.id, ItemData.info.color, 0)
+                        SetPedComponentVariation(playerPed, slot, ItemData.metadata.id, ItemData.metadata.color, 0)
                         syncClothes()
                     else
                         TriggerServerEvent('eraoutfits:server:receiveclothes', type, id, color)
                         Citizen.Wait(500)
-                        SetPedComponentVariation(playerPed, slot, ItemData.info.id, ItemData.info.color, 0)
+                        SetPedComponentVariation(playerPed, slot, ItemData.metadata.id, ItemData.metadata.color, 0)
                         syncClothes()
                     end
                 elseif Props then
@@ -589,12 +589,12 @@ end
                     QBCore.Functions.Notify(Locales.notif.done, 'success')
 
                 if pid == -1 then
-                        SetPedPropIndex(playerPed, pslot, ItemData.info.id, ItemData.info.color, true)
+                        SetPedPropIndex(playerPed, pslot, ItemData.metadata.id, ItemData.metadata.color, true)
                         syncClothes()
                     else
                         TriggerServerEvent('eraoutfits:server:receiveclothes', type, pid, color)
                         Citizen.Wait(500)
-                        SetPedPropIndex(playerPed, pslot, ItemData.info.id, ItemData.info.color, true)
+                        SetPedPropIndex(playerPed, pslot, ItemData.metadata.id, ItemData.metadata.color, true)
                         syncClothes()
                 end
             elseif type == "shirt" then
@@ -608,16 +608,16 @@ end
                 QBCore.Functions.Notify(Locales.notif.done, 'success')
 
                 if IsPlayerInUnderwear("shirt") then
-                    SetPedComponentVariation(playerPed, 11, ItemData.info.idtop, ItemData.info.colortop, 0)
-                    SetPedComponentVariation(playerPed, 8, ItemData.info.idshirt, ItemData.info.colorshirt, 0)
-                    SetPedComponentVariation(playerPed, 3, ItemData.info.idgloves, ItemData.info.colorgloves, 0)
+                    SetPedComponentVariation(playerPed, 11, ItemData.metadata.idtop, ItemData.metadata.colortop, 0)
+                    SetPedComponentVariation(playerPed, 8, ItemData.metadata.idshirt, ItemData.metadata.colorshirt, 0)
+                    SetPedComponentVariation(playerPed, 3, ItemData.metadata.idgloves, ItemData.metadata.colorgloves, 0)
                     syncClothes()
                 else
                     TriggerServerEvent('eraoutfits:server:receiveshirt', topDrawable, topTexture, underDrawable, underTexture, glovesDrawable, glovesTexture)
                     Citizen.Wait(500)
-                    SetPedComponentVariation(playerPed, 11, ItemData.info.idtop, ItemData.info.colortop, 0)
-                    SetPedComponentVariation(playerPed, 8, ItemData.info.idshirt, ItemData.info.colorshirt, 0)
-                    SetPedComponentVariation(playerPed, 3, ItemData.info.idgloves, ItemData.info.colorgloves, 0)
+                    SetPedComponentVariation(playerPed, 11, ItemData.metadata.idtop, ItemData.metadata.colortop, 0)
+                    SetPedComponentVariation(playerPed, 8, ItemData.metadata.idshirt, ItemData.metadata.colorshirt, 0)
+                    SetPedComponentVariation(playerPed, 3, ItemData.metadata.idgloves, ItemData.metadata.colorgloves, 0)
                     syncClothes()
                 end
             elseif type == "outfit" then
@@ -645,30 +645,30 @@ end
                     QBCore.Functions.Notify(Locales.notif.done, 'success')
     
                     if IsPlayerInUnderwear("all") then
-                        SetPedComponentVariation(playerPed, GetClothSlot("top"), ItemData.info.idtop, ItemData.info.colortop, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("shirt"), ItemData.info.idshirt, ItemData.info.colorshirt, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("gloves"), ItemData.info.idgloves, ItemData.info.colorgloves, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("pant"), ItemData.info.idpants, ItemData.info.colorpants, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("bags"), ItemData.info.idbags, ItemData.info.colorbags, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("kevlar"), ItemData.info.idkevlar, ItemData.info.colorkevlar, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("shoes"), ItemData.info.idshoes, ItemData.info.colorshoes, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("chains"), ItemData.info.idchains, ItemData.info.colorchains, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("decals"), ItemData.info.iddecal, ItemData.info.colordecal, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("mask"), ItemData.info.idmask, ItemData.info.colormask, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("top"), ItemData.metadata.idtop, ItemData.metadata.colortop, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("shirt"), ItemData.metadata.idshirt, ItemData.metadata.colorshirt, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("gloves"), ItemData.metadata.idgloves, ItemData.metadata.colorgloves, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("pant"), ItemData.metadata.idpants, ItemData.metadata.colorpants, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("bags"), ItemData.metadata.idbags, ItemData.metadata.colorbags, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("kevlar"), ItemData.metadata.idkevlar, ItemData.metadata.colorkevlar, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("shoes"), ItemData.metadata.idshoes, ItemData.metadata.colorshoes, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("chains"), ItemData.metadata.idchains, ItemData.metadata.colorchains, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("decals"), ItemData.metadata.iddecal, ItemData.metadata.colordecal, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("mask"), ItemData.metadata.idmask, ItemData.metadata.colormask, 0)
                         syncClothes()
                     else
                         TriggerServerEvent('eraoutfits:server:receiveoutfit', topDrawable, topTexture, underDrawable, underTexture, glovesDrawable, glovesTexture, kevlarDrawable, kevlarTexture, shoesDrawable, shoesTexture, chainsDrawable, chainsTexture, decalsDrawable, decalsTexture, maskDrawable, maskTexture, pantsDrawable, pantsTexture, bagsDrawable, bagsTexture)
                         Citizen.Wait(500)
-                        SetPedComponentVariation(playerPed, GetClothSlot("top"), ItemData.info.idtop, ItemData.info.colortop, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("shirt"), ItemData.info.idshirt, ItemData.info.colorshirt, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("gloves"), ItemData.info.idgloves, ItemData.info.colorgloves, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("pant"), ItemData.info.idpants, ItemData.info.colorpants, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("bags"), ItemData.info.idbags, ItemData.info.colorbags, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("kevlar"), ItemData.info.idkevlar, ItemData.info.colorkevlar, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("shoes"), ItemData.info.idshoes, ItemData.info.colorshoes, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("chains"), ItemData.info.idchains, ItemData.info.colorchains, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("decals"), ItemData.info.iddecal, ItemData.info.colordecal, 0)
-                        SetPedComponentVariation(playerPed, GetClothSlot("mask"), ItemData.info.idmask, ItemData.info.colormask, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("top"), ItemData.metadata.idtop, ItemData.metadata.colortop, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("shirt"), ItemData.metadata.idshirt, ItemData.metadata.colorshirt, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("gloves"), ItemData.metadata.idgloves, ItemData.metadata.colorgloves, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("pant"), ItemData.metadata.idpants, ItemData.metadata.colorpants, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("bags"), ItemData.metadata.idbags, ItemData.metadata.colorbags, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("kevlar"), ItemData.metadata.idkevlar, ItemData.metadata.colorkevlar, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("shoes"), ItemData.metadata.idshoes, ItemData.metadata.colorshoes, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("chains"), ItemData.metadata.idchains, ItemData.metadata.colorchains, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("decals"), ItemData.metadata.iddecal, ItemData.metadata.colordecal, 0)
+                        SetPedComponentVariation(playerPed, GetClothSlot("mask"), ItemData.metadata.idmask, ItemData.metadata.colormask, 0)
                         syncClothes()
                     end
                 else
